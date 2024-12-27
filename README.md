@@ -8,7 +8,7 @@ To implement  JK flipflop using verilog and validating their functionality using
 
 Quartus prime
 
-**THEORY**
+**THEOR:**
 
 **JK Flip-Flop**
 
@@ -32,17 +32,47 @@ By using three variable K-Map, we can get the simplified expression for next sta
 
 The maximum possible groupings of adjacent ones are already shown in the figure. Therefore, the simplified expression for next state Qt+1t+1 is Q(t+1)=JQ(t)′+K′Q(t)Q(t+1)=JQ(t)′+K′Q(t)
 
-**Procedure**
+**PROCEDURE:**
 
-/* write all the steps invloved */
+1.Type the program in Quartus software.
+2.compile and run the program.
+3.generate RTL schematic and save the logic diagram.
+4.Create node for input and output to generate timing diagram.
+5.for different input combinations generate the timing diagram.
 
-**PROGRAM**
+**PROGRAM:**
+     
+    module jk_ff (j, k, clk, rst, q);
+    input j, k, clk, rst;
+    output reg q;
+    always @(posedge clk or posedge rst) begin
+    if (rst)
+      q <= 0; // Reset the flip-flop
+    else if (j == 0 && k == 0)
+      q <= q; // No change
+    else if (j == 0 && k == 1)
+      q <= 0; // Reset
+    else if (j == 1 && k == 0)
+      q <= 1; // Set
+    else if (j == 1 && k == 1)
+      q <= ~q; // Toggle
+    end
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
 
-**RTL LOGIC FOR FLIPFLOPS**
+**RTL LOGIC FOR FLIPFLOP:**
 
-**TIMING DIGRAMS FOR FLIP FLOPS**
+![image](https://github.com/user-attachments/assets/da3195e1-aaaf-4618-ae94-2f266584d184)
 
-**RESULTS**
+
+**TIMING DIAGRAMS FOR FLIP FLOP:**
+
+![image](https://github.com/user-attachments/assets/c3b1ccef-ebbd-47a0-b3ac-3dae8201cf79)
+
+
+**RESULT:**
+
+Thus jk flipflop is implemented using verilog and their functionality using their function table is validated.
+
+DEVELOPED BY: K.DHANUSRI POOJA
+
+REGISTER NUMBER: 24011393
